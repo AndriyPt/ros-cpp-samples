@@ -5,8 +5,8 @@
     local-name: ros_ethercat
 
 - git:
-    uri: 'https://github.com/shadow-robot/lma_kinematics_plugin'
-    version: 'B_linking'
+    uri: 'https://github.com/shadow-robot/lma_kinematics_plugin.git'
+    version: 'hydro-devel'
     local-name: lma_kinematics_plugin
 
 - git:
