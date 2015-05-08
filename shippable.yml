@@ -12,6 +12,11 @@ install:
   - ./hosted/init_ros_indigo_ubuntu_14.sh
 
 before_script:
+  - mkdir -p shippable/testresults
+  - mkdir -p shippable/codecoverage
+  - cd shippable
+  - pwd
+  - cd ..
   - ./hosted/pull_project_changes.sh https://raw.githubusercontent.com/AndriyPt/ros-cpp-samples/indigo-devel/tooro/tooro.rosinstall
   - ./hosted/build.sh
 
