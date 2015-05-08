@@ -1,28 +1,25 @@
 
-- git:
-    uri: 'https://github.com/shadow-robot/ros_ethercat.git'
-    version: 'indigo-devel'
-    local-name: ros_ethercat
-
+#- git:
+#    uri: 'https://github.com/shadow-robot/ros_ethercat.git'
+#    version: 'indigo-devel'
+#    local-name: ros_ethercat
+#
 - git:
     uri: 'https://github.com/shadow-robot/lma_kinematics_plugin.git'
     version: 'hydro-devel'
     local-name: lma_kinematics_plugin
-
-- git:
-    uri: 'https://github.com/shadow-robot/sr-teleop.git'
-    version: 'indigo-devel'
-    local-name: sr-teleop
-
-- git:
-    uri: 'https://github.com/shadow-robot/universal_robot.git'
-    version: 'F_sr_plugin_compatible'
-    local-name: universal_robot
-
-- git:
-    uri: 'https://github.com/shadow-robot/sr-ros-interface.git'
-    version: 'indigo-devel'
-    local-name: shadow_robot
-    
-    
-
+#
+#- git:
+#    uri: 'https://github.com/shadow-robot/sr-teleop.git'
+#    version: 'indigo-devel'
+#    local-name: sr-teleop
+#
+#- git:
+#    uri: 'https://github.com/shadow-robot/universal_robot.git'
+#    version: 'F_sr_plugin_compatible'
+#    local-name: universal_robot
+#
+#- git:
+#    uri: 'https://github.com/shadow-robot/sr-ros-interface.git'
+#    version: 'indigo-devel'
+#    local-name: shadow_robot
