@@ -17,4 +17,4 @@ install:
 #  - ./hosted/build.sh
 
 script:
-  - sudo ansible ~/workspace/sr-build-tools/ansible/docker_site.yml
+  - sudo ansible-playbook -i "localhost," -c local ~/workspace/sr-build-tools/ansible/docker_site.yml
