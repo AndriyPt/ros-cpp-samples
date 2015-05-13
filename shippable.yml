@@ -12,9 +12,9 @@ install:
   - sudo apt-get install python-pip -y
   - sudo pip install ansible
 
-#before_script:
-#  - ./hosted/pull_project_changes.sh https://raw.githubusercontent.com/AndriyPt/ros-cpp-samples/indigo-devel/tooro/tooro.rosinstall
-#  - ./hosted/build.sh
+before_script:
+  - cd ~/workspace/sr-build-tools/ansible
 
 script:
-  - sudo ansible-playbook -i "localhost," -c local ~/workspace/sr-build-tools/ansible/docker_site.yml
+  - sudo ansible-playbook -i "localhost," -c local docker_site.yml --tags "ros_install,ros_workspace"
+
