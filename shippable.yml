@@ -17,5 +17,5 @@ before_script:
   - cd ~/workspace/sr-build-tools/ansible
 
 script:
-  - sudo ansible-playbook -i "localhost," -c local docker_site.yml --tags "ros_install,ros_workspace"
+  - sudo ansible-playbook -v -i "localhost," -c local docker_site.yml --tags "ros_install,ros_user,ros_workspace"
 
