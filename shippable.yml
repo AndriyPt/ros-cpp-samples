@@ -9,6 +9,8 @@ install:
   - git clone https://github.com/shadow-robot/sr-build-tools.git
   - cd ./sr-build-tools
   - git checkout F_hosted_build_support
+  - sudo apt-get install pip -y
+  - sudo pip install ansible
 
 #before_script:
 #  - ./hosted/pull_project_changes.sh https://raw.githubusercontent.com/AndriyPt/ros-cpp-samples/indigo-devel/tooro/tooro.rosinstall
