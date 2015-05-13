@@ -9,11 +9,10 @@ install:
   - git clone https://github.com/shadow-robot/sr-build-tools.git
   - cd ./sr-build-tools
   - git checkout F_hosted_build_support
-  - ./hosted/init_ros_indigo_ubuntu_14.sh
 
-before_script:
-  - ./hosted/pull_project_changes.sh https://raw.githubusercontent.com/AndriyPt/ros-cpp-samples/indigo-devel/tooro/tooro.rosinstall
-  - ./hosted/build.sh
+#before_script:
+#  - ./hosted/pull_project_changes.sh https://raw.githubusercontent.com/AndriyPt/ros-cpp-samples/indigo-devel/tooro/tooro.rosinstall
+#  - ./hosted/build.sh
 
 script:
-  - ./hosted/run_unit_tests.sh
+  - sudo ansible ~/workspace/sr-build-tools/ansible/docker_site.yml
