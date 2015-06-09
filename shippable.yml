@@ -5,6 +5,7 @@ python:
   
 install:
   - mkdir -p ~/workspace
+  - env
   - cd ~/workspace
   - git clone https://github.com/shadow-robot/sr-build-tools.git -b F#107_build_only_pr sr-build-tools
   - cd ./sr-build-tools
