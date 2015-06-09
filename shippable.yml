@@ -6,9 +6,8 @@ python:
 install:
   - mkdir -p ~/workspace
   - cd ~/workspace
-  - git clone https://github.com/shadow-robot/sr-build-tools.git
+  - git clone https://github.com/shadow-robot/sr-build-tools.git -b F#107_build_only_pr sr-build-tools
   - cd ./sr-build-tools
-  - git checkout F_hosted_build_support
   - sudo apt-get update
   - sudo apt-get install python-dev libxml2-dev libxslt-dev python-pip -y
   - sudo pip install ansible
@@ -17,5 +16,5 @@ before_script:
   - cd ~/workspace/sr-build-tools/ansible
 
 script:
-  - sudo ansible-playbook -v -i "localhost," -c local docker_site.yml --tags "shippable,install,create_workspace,update_dependencies,build,unit_tests" -e "shippable_repo_dir=$SHIPPABLE_REPO_DIR"
+  - sudo ansible-playbook -v -i "localhost," -c local docker_site.yml --tags "shippable,build_pr_only,install,create_workspace,update_dependencies,build,unit_tests" -e "shippable_repo_dir=$SHIPPABLE_REPO_DIR"
 
