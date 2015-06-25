@@ -14,7 +14,7 @@ install:
   - sudo apt-get install curl -y
 
 script:
-  - export toolset_branch="F#108_python_code_cov"
+  - export toolset_branch="master"
   - export server_type="shippable"
   - export used_modules="check_cache,install,create_workspace,code_style_check,unit_tests,codecov_tool"
   - export remote_shell_script="https://raw.githubusercontent.com/shadow-robot/sr-build-tools/$toolset_branch/bin/sr-run-ci-build.sh"
