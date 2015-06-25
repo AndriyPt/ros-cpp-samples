@@ -1,24 +1,29 @@
 language: python
-build_image: shippableimages/ubuntu1404_python 
+build_image: shippableimages/ubuntu1404_python
 python:
   - 2.7
-  
+
+#codecov token (encrypted)
+env:
+  - secure: B5uhktq4Jysue4x/T8OTvgd0LGsDY9iIqOvD4TWju1HCYn4e5Z6dWr8WDBVCaFHaK1lLBShu8ui0Qox//BHY+HjQplXokRjZSxMreQJUdOFh0DqWY7sc1hO9kvsPagoEkL4V8nqhGK+rCgLYTREoE2ra/uODs28txrVb4AlBux6us77P9sUya8xtyoAkg502MTBskjY2awkf2jEU89usujv1s7blgj5qTrv2XjdR1MdJiRe8MZBUkGDPOIzOkN8j0paD1TSXqiWaks4Mi10Q6XpRBGr6F/fzIra22vApZBZugYUWfP7Va5Lcu0C9J4zveIBWWvz4TMKVC0AwAJ/2FQ==
+
 install:
+  - root_folder=`pwd`
   - mkdir -p ~/workspace
   - cd ~/workspace
-  - git clone https://github.com/shadow-robot/sr-build-tools.git
-  - cd ./sr-build-tools
-  - git checkout F_hosted_build_support
-  - ./hosted/init_ros_indigo_ubuntu_14.sh
+  - git clone -b F#108_python_code_cov https://github.com/shadow-robot/sr-build-tools.git
+  - sudo apt-get update
+  - sudo apt-get install python-dev libxml2-dev libxslt-dev python-pip lcov wget curl -y
+  - sudo pip install ansible gcovr
+  - mkdir -p ${root_folder}/shippable/codecoverage
 
 before_script:
-  - mkdir -p shippable/testresults
-  - mkdir -p shippable/codecoverage
-  - cd shippable
-  - pwd
-  - cd ..
-  - ./hosted/pull_project_changes.sh https://raw.githubusercontent.com/AndriyPt/ros-cpp-samples/indigo-devel/tooro/tooro.rosinstall
-  - ./hosted/build.sh
+  - cd ~/workspace/sr-build-tools/ansible
 
 script:
-  - ./hosted/run_unit_tests.sh
+  - sudo ansible-playbook -v -i "localhost," -c local docker_site.yml --tags "shippable,build_pr_only,install,create_workspace,update_dependencies,build,unit_tests" -e "shippable_repo_dir=$SHIPPABLE_REPO_DIR  shippable_is_pull_request=$PULL_REQUEST"
+
+after_success:
+  - gcovr -r ~/workspace --xml-pretty > ${root_folder}/shippable/codecoverage/coverage.xml
+  - cd ${root_folder}/shippable/codecoverage
+  - bash <(curl -s https://codecov.io/bash)
