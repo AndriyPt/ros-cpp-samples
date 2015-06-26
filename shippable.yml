@@ -1,12 +1,12 @@
 language: python
-build_image: shippableimages/ubuntu1404_python 
+build_image: shippableimages/ubuntu1404_python
 python:
   - 2.7
-  
+
 #codecov token (encrypted)
 env:
   - secure: FaT0XF8HGXDDZD7D6V6NdoJq/+TkR5lHb8z+MS41xbTP1R680E4LGXg450L7d86lYN37zyvCGuEB4mh+9HQ27yc91k0+cSAunPLuJgJDUmEjz1I3nCl8xs5AxPNPyqXsxaCgCu3pIyjEfC5daMFRdNCJR2/+e4s85PyWP1kUw3sk23BvC+VSAG6HA9jjd+Iwv3wXBszkcsVPmYZOfq5PwwcOasSaNtm3aFoLpo9ShLLxMur/2Yi2G09CvUxT1PAQ9sOTvL70VvvT+0Pvmv6X3pPMBi1HA8oPeYA/TlQlpSBF4BrdTvhyeX6XJIO85IImsWtBvSdiT2MfgE59BDPlTw==
-  
+
 cache: true
 
 install:
@@ -14,7 +14,7 @@ install:
   - sudo apt-get install curl -y
 
 script:
-  - export toolset_branch="master"
+  - export toolset_branch="F#108_python_code_cov"
   - export server_type="shippable"
   - export used_modules="check_cache,install,create_workspace,code_style_check,unit_tests,codecov_tool"
   - export remote_shell_script="https://raw.githubusercontent.com/shadow-robot/sr-build-tools/$toolset_branch/bin/sr-run-ci-build.sh"
