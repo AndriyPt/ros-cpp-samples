@@ -21,7 +21,7 @@ script:
   - rm -f $SHIPPABLE_REPO_DIR/shippable/codecoverage/.coverage
   - ls -al $SHIPPABLE_REPO_DIR/shippable/codecoverage
   - sudo apt-get install cobertura
-  - cobertura-merge --datafile $SHIPPABLE_REPO_DIR/shippable/codecoverage/cobertura.xml  $SHIPPABLE_REPO_DIR/shippable/codecoverage/cobertura.python.xml $SHIPPABLE_REPO_DIR/shippable/codecoverage/cobertura.cpp.xml
-  - rm -f $SHIPPABLE_REPO_DIR/shippable/codecoverage/cobertura.python.xml
-  - rm -f $SHIPPABLE_REPO_DIR/shippable/codecoverage/cobertura.cpp.xml
+  - cobertura-merge --datafile $SHIPPABLE_REPO_DIR/shippable/codecoverage/cobertura.xml  $SHIPPABLE_REPO_DIR/shippable/codecoverage/coverage.python.xml $SHIPPABLE_REPO_DIR/shippable/codecoverage/coverage.cpp.xml
+  - rm -f $SHIPPABLE_REPO_DIR/shippable/codecoverage/coverage.python.xml
+  - rm -f $SHIPPABLE_REPO_DIR/shippable/codecoverage/coverage.cpp.xml
 
