@@ -10,7 +10,7 @@ install:
   - sudo apt-get install curl -y
 
 script:
-  - export toolset_branch="F_fix_test_cleanup"
+  - export toolset_branch="F_fix_build_folder_cleanup"
   - export server_type="shippable"
   - export used_modules="check_cache,install,create_workspace,unit_tests"
   - export remote_shell_script="https://raw.githubusercontent.com/shadow-robot/sr-build-tools/$toolset_branch/bin/sr-run-ci-build.sh"
