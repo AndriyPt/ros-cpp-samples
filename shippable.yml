@@ -17,3 +17,7 @@ script:
   - curl -s "$( echo "$remote_shell_script" | sed 's/#/%23/g' )" | bash /dev/stdin "$toolset_branch" $server_type $used_modules
   - ls -al $SHIPPABLE_REPO_DIR/shippable/codecoverage
   - mv $SHIPPABLE_REPO_DIR/shippable/codecoverage/coverage.xml $SHIPPABLE_REPO_DIR/shippable/codecoverage/coverage.cpp.xml
+  - ls -al $SHIPPABLE_REPO_DIR/shippable/codecoverage
+  - rm -f $SHIPPABLE_REPO_DIR/shippable/codecoverage/.coverage
+  - ls -al $SHIPPABLE_REPO_DIR/shippable/codecoverage
+
