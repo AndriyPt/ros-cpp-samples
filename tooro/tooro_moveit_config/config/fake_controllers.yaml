@@ -1,0 +1,23 @@
+controller_list:
+  - name: fake_left_finger_controller
+    joints:
+      - left_finger_joint
+  - name: fake_right_finger_controller
+    joints:
+      - right_finger_joint
+  - name: fake_arm_controller
+    joints:
+      - left_finger_joint
+      - right_finger_joint
+  - name: fake_hand_controller
+    joints:
+      - joint1
+      - joint2
+      - left_finger_joint
+      - right_finger_joint
+  - name: fake_robot_controller
+    joints:
+      - joint1
+      - joint2
+      - left_finger_joint
+      - right_finger_joint
