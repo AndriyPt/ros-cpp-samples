@@ -1,3 +1,6 @@
+/**
+* Copyright 2015 Owner
+*/
 
 #include <gtest/gtest.h>
 
