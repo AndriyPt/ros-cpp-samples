@@ -14,7 +14,12 @@ script:
 #  - export used_modules="check_cache,install,create_workspace,unit_tests,code_coverage"
   - export used_modules="check_cache,install,create_workspace,unit_tests"
   - export remote_shell_script="https://raw.githubusercontent.com/shadow-robot/sr-build-tools/$toolset_branch/bin/sr-run-ci-build.sh"
-  - curl -s "$( echo "$remote_shell_script" | sed 's/#/%23/g' )" | bash /dev/stdin "$toolset_branch" $server_type $used_modules
+#  - curl -s "$( echo "$remote_shell_script" | sed 's/#/%23/g' )" | bash /dev/stdin "$toolset_branch" $server_type $used_modules
+  - export encoded_url="$( echo "$remote_shell_script" | sed 's/#/%23/g' )"
+  - wget -O ./test.sh  $encoded_url
+  - chmod 755 ./test.sh
+  - ./test.sh "$toolset_branch" $server_type $used_modules
+
 #  - ls -al $SHIPPABLE_REPO_DIR/shippable/codecoverage
 #  - mv $SHIPPABLE_REPO_DIR/shippable/codecoverage/coverage.xml $SHIPPABLE_REPO_DIR/shippable/codecoverage/coverage.cpp.xml
 #  - ls -al $SHIPPABLE_REPO_DIR/shippable/codecoverage
