@@ -7,6 +7,7 @@ python:
 install:
   - sudo apt-get update
   - sudo apt-get install curl -y
+  - sudo apt-get install wget -y
 
 script:
   - export toolset_branch="F_semamphore_ci"
