@@ -5,11 +5,13 @@ python:
 
 
 install:
+  - export LANG=en_US.UTF-8
   - sudo apt-get update
   - sudo apt-get install curl -y
+  - sudo apt-get install python-wstool
+  - sudo apt-get install python-rosinstall
 
 script:
-  - export LANG=en_US.UTF-8
 #  - export toolset_branch="F#116_semaphore_ci_support"
   - export toolset_branch="master"
   - export server_type="shippable"
