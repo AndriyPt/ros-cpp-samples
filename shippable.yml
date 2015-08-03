@@ -8,8 +8,8 @@ install:
   - export LANG=en_US.UTF-8
   - sudo apt-get update
   - sudo apt-get install curl -y
-  - sudo apt-get install python-wstool
-  - sudo apt-get install python-rosinstall
+  - sudo apt-get install python-wstool -y
+  - sudo apt-get install python-rosinstall -y
 
 script:
 #  - export toolset_branch="F#116_semaphore_ci_support"
